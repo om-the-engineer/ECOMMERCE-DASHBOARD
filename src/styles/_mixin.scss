@@ -1,0 +1,83 @@
+//this mixin i.e., reusable block of code we will be going to use in "app.scss"
+//file name should start with "_" to prevent compilation
+
+@mixin heading 
+//mixin directive defining
+(
+    //declaring variables with its values
+    $spacing: 3px,
+    $weight: 300,
+    $case:upperCase
+    ) {
+    //applying properties of the variables
+    letter-spacing: $spacing;
+    font-weight: $weight;
+    text-transform: $case;
+}
+
+@mixin flex (
+    $dir : row,
+    $justifyContent: center,
+    $alignItems:center,
+    $gap: 1rem
+    ) {
+        display: flex;
+        flex-direction: $dir;
+        justify-content: $justifyContent;
+        align-items: $alignItems;
+        gap: $gap;  
+}//if "flex" name is changed with "posCenter" it can "center" position of every element inside it
+
+@mixin grid (
+    $col: 1fr,
+    $gap: 1rem,
+    $row: unset
+    ) {
+        display: grid;
+        grid-template-columns: $col;
+        grid-template-rows: $row;
+        gap: $gap;  
+}
+
+@mixin inputStyle (
+    $w : 100%,
+    $p : 1rem,
+    $bgColor : inherit,
+    $border : none
+    ) {
+        padding: $p;
+        border: $border;
+        background-color: $bgColor;
+        width: $w;
+        outline : none;// by default 
+}
+
+/* @mixin posCenter(
+    $w : 100%,
+    $p : 1rem,
+    $bgColor : inherit,
+    $border : none
+    ) {
+        padding: $p;
+        border: $border;
+        background-color: $bgColor;
+        width: $w;
+        outline : none;// by default 
+} */
+//used for positioning center any element
+
+@mixin posCenter
+//declaration of mixin element without variables directly applying values.
+{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+} //now it can center any element of the screen
+// if we need to place any element at the center of any element the "position: relative;"
+
+@mixin square($s: 1rem) {
+    height: $s;
+    width: $s;
+}
+//not necessary but for square (whose h & w are equal)
