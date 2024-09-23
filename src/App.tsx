@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 //import Dashboard from "./pages/dashboard";
 //conventional way of importing pages.
@@ -33,14 +33,8 @@ const App = () => {
     <Suspense fallback={<Loader />}>
       <Routes>
 
-      <Route
-            path="/"
-            element={
-              <Link to="/admin/dashboard">
-                <button>Visit Dashboard</button>
-              </Link>
-            }
-          />
+        {/* Automatically redirect from "/" to "/admin/dashboard" */}
+        <Route path="/" element={<Navigate to="/admin/dashboard" />} />
 
         {/* Sidebar Navigations*/}
         <Route path="admin/dashboard" element={<Dashboard />} />;
