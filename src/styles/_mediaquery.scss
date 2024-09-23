@@ -6,13 +6,18 @@
     .dashboard-product-box {
         >h2 {
             margin-left: 3rem;
+            position: fixed;
+            background-color: white;
+        }
+        >table {
+            margin-top: 3rem;
         }
     }
 
     .chart-container{
         >h1 {
             padding-top: 1.6rem;
-            padding-left: 4rem;
+            padding-left: 5rem;
         }
     }
     .dashboard {
